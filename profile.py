@@ -2,35 +2,30 @@ import streamlit as st
 
 # 페이지 기본 설정
 st.set_page_config(
-    page_title="내 프로필",
+    page_title="김나윤 프로필",
     page_icon="👋",
     layout="centered"
 )
 
-# 헤더 영역
-st.title("👋 안녕하세요!")
-st.write("저의 프로필 페이지에 오신 것을 환영합니다.")
-
-st.divider()
-
-# 프로필 정보 카드 형태 혹은 컬럼으로 꾸미기
-col1, col2 = st.columns([1, 2])
+# 프로필 상단 영역 (이미지와 인적사항 배치)
+col1, col2 = st.columns([1, 2], gap="medium")
 
 with col1:
-    # 프로필 이미지가 있다면 추가하거나 아이콘으로 대체할 수 있어요
+    # 프로필 사진이 있다면 주석을 풀고 사용하세요 (폴더에 사진 추가 시)
+    # st.image("profile/images.jpeg", width=200)
+    
+    # 사진이 없다면 깔끔한 아이콘이나 아바타 대체
     st.markdown("### 🧑‍💻")
 
 with col2:
-    st.subheader("김나윤")  # 필요에 따라 이름 수정
-    st.markdown("**학교:** 대학교")  # 학교 이름 입력
-    st.markdown("**전공:** 바이오메디컬공학부 / 화학과 (복수전공)")  # 전공 입력
+    st.markdown("## 김나윤")
+    st.markdown("바이오메디컬공학부 / 화학과 (복수전공)")
+    st.markdown("대학교") # 다니시는 학교 이름으로 수정해 주세요
 
 st.divider()
 
-# 관심 분야 섹션
-st.subheader("💡 관심 분야")
-
-# 태그처럼 보여주는 뱃지 형태나 리스트
+# 관심 분야 섹션 (PDF 스타일 반영)
+st.subheader("Research Interests")
 interests = [
     "인공지능 (AI)",
     "신약 개발 및 표적 발굴",
@@ -41,6 +36,13 @@ interests = [
 for interest in interests:
     st.markdown(f"- {interest}")
 
-# 추가적인 소개나 연락처를 넣고 싶다면 아래에 작성할 수 있어요
+st.divider()
+
+# 연구 경험 또는 주요 활동 섹션 (PDF 7페이지 참고)
+st.subheader("Research Experience")
+st.markdown("- **인공지능 및 바이오 연구 관심**")
+st.markdown("- 파이썬 및 딥러닝 기반 데이터 분석")
+
+# 하단 저작권 표시
 st.divider()
 st.caption("© 2026 Nayoon Kim. All rights reserved.")
