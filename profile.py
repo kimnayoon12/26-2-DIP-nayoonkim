@@ -11,8 +11,6 @@ st.set_page_config(
 col1, col2 = st.columns([1, 2], gap="medium")
 
 with col1:
-    # 프로필 사진이 있다면 주석을 풀고 사용하세요 (폴더에 사진 추가 시)
-    # st.image("profile/images.jpeg", width=200)
     
     # 사진이 없다면 깔끔한 아이콘이나 아바타 대체
     st.markdown("### 🧑‍💻")
@@ -20,8 +18,7 @@ with col1:
 with col2:
     st.markdown("## 김나윤")
     st.markdown("바이오메디컬공학부 / 화학과 (복수전공)")
-    st.markdown("대학교") # 다니시는 학교 이름으로 수정해 주세요
-
+    st.markdown("한국외국어대학교") 
 st.divider()
 
 # 관심 분야 섹션 (PDF 스타일 반영)
