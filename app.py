@@ -22,12 +22,12 @@ st.sidebar.header("⚙️ 처리 설정 (Parameters)")
 med_kernel = st.sidebar.slider("Median Filter Kernel Size", min_value=3, max_value=15, value=7, step=2)
 th_val = st.sidebar.slider("Threshold Value", min_value=0, max_value=255, value=190, step=1)
 
-# 파일 업로더
-uploaded_file = st.file_uploader("이미지 파일을 업로드하세요 (JPG, PNG)", type=["jpg", "jpeg", "png"])
+# 저장소에 업로드된 은행잎 이미지 불러오기
+image_path = "KakaoTalk_20261108_222236186.jpg"
 
-if uploaded_file is not None:
+try:
     # 1. 이미지 불러오기 및 그레이스케일 변환
-    image = Image.open(uploaded_file).convert('L')
+    image = Image.open(image_path).convert('L')
     f = np.array(image)
     
     col1, col2 = st.columns(2)
