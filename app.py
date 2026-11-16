@@ -124,5 +124,5 @@ try:
         st.pyplot(fig)
     else:
         st.warning("감지된 객체가 없습니다. 임계값(Threshold)을 조절해 보세요.")
-else:
-    st.info("👆 사이드바에서 설정을 확인하고, 분석할 이미지를 업로드해 주세요.")
+except FileNotFoundError:
+    st.error(f"'{image_path}' 파일을 찾을 수 없습니다. 파일 이름을 확인해 주세요.")
