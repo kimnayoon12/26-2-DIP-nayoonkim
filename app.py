@@ -22,12 +22,11 @@ st.sidebar.header("⚙️ 처리 설정 (Parameters)")
 med_kernel = st.sidebar.slider("Median Filter Kernel Size", min_value=3, max_value=15, value=7, step=2)
 th_val = st.sidebar.slider("Threshold Value", min_value=0, max_value=255, value=190, step=1)
 
-# 저장소에 업로드된 은행잎 이미지 불러오기
-image_path = "KakaoTalk_20261108_222236186.jpg"
+uploaded_file = st.file_uploader("이미지 파일을 업로드하세요 (JPG, PNG)", type=["jpg", "jpeg", "png"])
 
-try:
+if uploaded_file is not None:
     # 1. 이미지 불러오기 및 그레이스케일 변환
-    image = Image.open(image_path).convert('L')
+    image = Image.open(uploaded_file).convert('L')
     f = np.array(image)
     
     col1, col2 = st.columns(2)
@@ -124,5 +123,5 @@ try:
         st.pyplot(fig)
     else:
         st.warning("감지된 객체가 없습니다. 임계값(Threshold)을 조절해 보세요.")
-except FileNotFoundError:
-    st.error(f"'{image_path}' 파일을 찾을 수 없습니다. 파일 이름을 확인해 주세요.")
+else:
+    st.info("👆 사이드바에서 설정을 확인하고, 분석할 이미지를 업로드해 주세요.")
